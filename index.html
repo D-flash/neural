@@ -2,6 +2,33 @@
 
 <html>
 <body>
-  вапвап ветка мастер 2
+  <div id="app">
+    <div v-text="message">
+
+    </div>
+    <input type="text" v-model="message">
+    <button type="button" @click="message=''">Нажми</button>
+    <div v-for="(value, key) in object">
+      {{ key }}: {{ value }}
+    </div>
+    <div v-if="check">
+      {{message}}
+    </div>
+    <div v-else>
+      пусто
+    </div>
+    <input type="checkbox" v-model="check">
+  </div>
+  <script src="vue.js"></script>
+  <script >
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!',
+      object:[1,2,3,4,5],
+      check: false
+    }
+  })
+  </script>
 </body>
 </html>
