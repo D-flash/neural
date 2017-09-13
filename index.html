@@ -1,16 +1,19 @@
 
 
 <html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <body>
-  <div id="app">
-    <div v-text="message">
-sss
-    </div>
-    <input type="text" v-model="message">
-    <button type="button" @click="message=''">Нажми</button>
-    <div v-for="(value, key) in object">
-      {{ key }}: {{ value }}
-    </div>
+  <table id="main_layout">
+    <tr v-for="(value_tr,key_tr) in size">
+      <td v-for="(value_td,key_td) in size" @click="click_cell(key_tr,value_td)">
+        {{ key_tr }}/{{ value_td }}
+      </td>
+    <tr>
+  </table>
+  <div id="info" v-text="message"></div>
+  <!--<input type="text" v-model="message">
     <div v-if="check">
       {{message}}
     </div>
@@ -19,14 +22,24 @@ sss
     </div>
     <input type="checkbox" v-model="check">
   </div>
+-->
   <script src="vue.js"></script>
   <script >
-  var app = new Vue({
-    el: '#app',
+  var main_layout = new Vue({
+    el: '#main_layout',
     data: {
-      message: 'Hello Vue!',
-      object:[1,2,3,4,5],
-      check: false
+      size:[1,2,3]
+    },
+    methods:{
+      click_cell: function(tr,td){
+        info.message='Нажатие'+tr+'/'+td+'\n'+info.message;
+      }
+    }
+  });
+  var info = new Vue({
+    el: '#info',
+    data: {
+      message: 'Логи'
     }
   })
   </script>

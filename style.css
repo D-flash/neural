@@ -1,0 +1,16 @@
+body{
+  background:#383838;
+  color:#ffffff
+}
+table{
+	font-size: 12px;
+  border:1px solid #000000
+}
+td{
+  border:1px solid #000000;
+  padding:50pt
+}
+#info{
+  white-space: pre-line;
+  background:#000000;
+}
